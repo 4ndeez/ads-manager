@@ -15,7 +15,17 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
+# Use Devise for authentication
+gem 'devise'
+# Use Rubocop for code style guide
+gem 'rubocop', require: false
+# Use haml for views
+gem 'haml-rails', "~> 2.0"
+# Use enumerize for model roles
+gem 'enumerize'
+# Use bootstrap on front
+gem 'bootstrap', '~> 5.0.1'
+gem 'jquery-rails'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -39,6 +49,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 4.0.2'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner'
+  gem 'faker'
 end
 
 group :development do
@@ -54,8 +68,6 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,0 +1,13 @@
+.container
+  .row
+    .col-4
+    .col-4
+      .account-wall
+        %h3.text-center Forgot your password?
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          = f.email_field :email, class: "form-control", placeholder: "Email", autofocus: true, autocomplete: "email"
+          .actions.m-2
+            .row
+              = f.submit "Send me reset password instructions", class: "btn btn-success"
+        = render "devise/shared/links"

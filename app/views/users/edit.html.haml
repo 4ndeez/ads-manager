@@ -1,0 +1,54 @@
+.container
+  .row
+    .col-3
+    .col-6
+      .account-wall
+        %img.profile-img{src: "https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"}
+        %h2.text-center Edit
+        = form_for(:user, url: user_url(@user), html: { method: :put }) do |f|
+          = render "devise/shared/error_messages", resource: @user
+          .row.m-2
+            .col
+              = f.label :email
+              %br/
+              = f.email_field :email, class: "form-control"
+          .row.m-2
+            .col
+              = f.label :first_name
+              %br/
+              = f.text_field :first_name, class: "form-control"
+          .row.m-2
+            .col
+              = f.label :last_name
+              %br/
+              = f.text_field :last_name, class: "form-control"
+          -#.row.m-2
+          -#  .col
+          -#    = f.label :password
+          -#    %i (enter your password to submit changes)
+          -#    %br/
+          -#    = f.password_field :password, class: "form-control", autocomplete: "new-password"
+          -#.row.m-2
+          -#  .col
+          -#    = f.label :password_confirmation
+          -#    %br/
+          -#    = f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password"
+          -#.row.m-2
+          -#  .col
+          -#    = f.label :current_password
+          -#    %i (we need your current password to confirm your changes)
+          -#    %br/
+          -#    = f.password_field :current_password, class: "form-control", autocomplete: "current-password"
+          .row.m-2
+            .col
+              = f.submit "Update", class: "btn btn-success btn-block input-block-level"
+          .row.mt-4
+            .col
+            .col
+            .col
+              %h3 Unhappy?
+        .row
+          .col
+          .col
+          .col
+            #{button_to "Cancel my account", registration_url(@user), class: "btn btn-danger", data: { confirm: "Are you sure?" }, method: :delete}
