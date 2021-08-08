@@ -1,0 +1,25 @@
+.container
+  .row
+    .col-md-auto
+      .account-wall
+        %h2.text-center.border-bottom Creating advertisement
+        .form-group
+          .container
+            = simple_form_for(@ad) do |f|
+              .row
+                .col-6
+                  .row
+                    = f.input :name, label: false, placeholder: "Title", autofocus: true
+                    %br/
+                  .row.mt-2
+                    = f.input :description, label: false, placeholder: "Description"
+                  .row
+                    = f.input :user_id, label: false, input_html: { value: current_user.id, hidden: true }
+                  .row.mt-2
+                    = f.input :images, input_html: { multiple: true }
+                  .row.m-2
+                .col-6
+                  >>IMAGES PREVIEW<<
+              .row
+                .col-md-auto
+                  = f.button :submit, class: "btn btn-success "

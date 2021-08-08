@@ -1,0 +1,22 @@
+.container-fluid
+  .row
+    .col-12
+      .account-wall
+        %h3.text-center.border-bottom User ads:
+        .row.m-2
+          .col-9
+            - @ads.each_slice(3) do |slice|
+              .row.mt-4
+                - slice.each do |ad|
+                  .col-4
+                    = link_to advertisement_url(ad), class: 'text-decoration-none text-dark' do
+                      .card
+                        - if ad.images.attached?
+                          = cl_image_tag ad.images.first.key, class: 'card-img-top p-2'
+                        - else
+                          %img.card-img-top.p-2.no-image{src: "https://www.allianceplast.com/wp-content/uploads/no-image.png"}
+                        .card-body
+                          %h5.card-title= ad.name
+                          %h6.card-subtitle.text-muted.text-end.border-top= ad.updated_at.localtime.strftime '%Y-%m-%d %H:%M'
+          .col-3
+            %h3.text-center.bg-info --FILTERS--

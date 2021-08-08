@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-12
+      .account-wall
+        .d-flex.flex-row.bd-highlight
+          - @ad.images.each do |image|
+            .p-2.bd-highlight
+              = cl_image_tag image.key, crop: "fill", class: 'img-fluid img-show'
+        .row
+          .col-md-auto.m-2
+            %h2.text-start= @ad.name
+        .row
+          .col-md-auto.m-2
+            %h5= @ad.description
+        .row.m-2
+          .col.text-end.text-muted
+            = @ad.updated_at.localtime.strftime '%Y-%m-%d %H:%M'
+  -# - if @ad.images.attached?
+  -#   = cl_image_tag @ad.images.first.key, width: 100, height: 100, crop: "fill"
