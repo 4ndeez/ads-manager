@@ -30,6 +30,7 @@ class AdvertisementsController < ApplicationController
   end
 
   def ad_params
-    params.require(:advertisement).permit(:name, :description, :user_id, images: [])
+    params.require(:advertisement).permit(:name, :description, :user_id,
+                                          :tag_list, :tag, { tag_ids: [] }, :tag_ids, images: [])
   end
 end

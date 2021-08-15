@@ -29,6 +29,11 @@ gem 'jquery-rails'
 # Use cloudinary to store images in cloud
 gem 'cloudinary'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+  gem 'rails-assets-chosen'
+end
+
 gem 'simple_form'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require chosen
  *= require_tree .
  *= require_self
  */
@@ -111,4 +112,16 @@ body
 
 .img-show {
   height: 200px;
+}
+
+.chosen-container ul.chosen-results li.highlighted {
+  background-color: #0d6efd;
+  background-image: none;
+}
+
+.chosen-container ul.chosen-choices li.search-choice {
+  background-color: #0d6efd;
+  color: white;
+  background-image: none;
+  border: 1px solid white;
 }
