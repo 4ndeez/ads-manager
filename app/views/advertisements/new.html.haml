@@ -1,0 +1,33 @@
+.container
+  .row
+    .col-12
+      .account-wall
+        %h2.text-center.border-bottom Creating advertisement
+        .form-group
+          .container
+            = simple_form_for(@ad) do |f|
+              .row
+                .col-6
+                  .row
+                    = f.input :name, label: false, placeholder: "Title", autofocus: true
+                    %br/
+                  .row.mt-2
+                    = f.input :description, label: false, placeholder: "Description", input_html: { rows: 6 }
+                  .row.mt-2
+                    = f.input :tag_ids, as: :select, collection: Tag.order(:name), label: 'Click and select or type to choose tags',
+                    input_html: { multiple: true, class: 'form-select' }
+                  .row
+                    = f.input :user_id, label: false, input_html: { value: current_user.id, hidden: true }
+                  .row.mt-2
+                    .col
+                      Attach images
+                  .row.mt-2
+                    = f.input :images, label: false, input_html: { multiple: true, image_preview: true,
+                    'up-data': '.image-preview'.to_json }
+                  .row.m-2
+                .col
+                  .row.mt-2
+                    .image-preview{ id: "target"}
+              .row
+                .col-md-auto
+                  = f.button :submit, class: "btn btn-success"
