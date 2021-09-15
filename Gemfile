@@ -28,6 +28,8 @@ gem 'bootstrap', '~> 5.0.1'
 gem 'jquery-rails'
 # Use cloudinary to store images in cloud
 gem 'cloudinary'
+# Use aasm to handle states
+gem 'aasm'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
